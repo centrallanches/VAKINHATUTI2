@@ -6,14 +6,19 @@ export default async function handler(req, res) {
   try {
     const { amount } = req.body;
     
-    // Pega a chave da API que você configurou no Vercel
+    // Validação básica
+    if (!amount || amount <= 0) {
+      return res.status(400).json({ error: 'Valor inválido' });
+    }
+
     const ELITE_PAY_API_KEY = process.env.ELITE_PAY_API_KEY;
     
     if (!ELITE_PAY_API_KEY) {
-      return res.status(500).json({ error: 'Chave da API não configurada' });
+      console.error('ERRO CRÍTICO: Variável ELITE_PAY_API_KEY não encontrada.');
+      return res.status(500).json({ error: 'Configuração do servidor incompleta.' });
     }
 
-    // Chama a Elite Pay
+    // Tenta conectar na Elite Pay
     const response = await fetch('https://api.elitepay.com.br/v1/payments', {
       method: 'POST',
       headers: {
@@ -21,28 +26,36 @@ export default async function handler(req, res) {
         'Authorization': `Bearer ${ELITE_PAY_API_KEY}`,
       },
       body: JSON.stringify({
-        amount: amount * 100, // Converte Reais para Centavos
+        amount: Math.round(amount * 100), // Garante inteiro em centavos
         currency: 'BRL',
         description: 'Doação Tuti',
-        payment_method: 'pix', // Força o método PIX
+        payment_method: 'pix',
       }),
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || 'Erro ao criar pagamento na Elite Pay');
+      // Loga o erro real no console do Vercel para você ver
+      console.error('Erro Elite Pay:', data);
+      throw new Error(data.message || `Erro HTTP ${response.status}`);
     }
 
-    // Retorna o código Pix Copia e Cola para o frontend
-    // Ajuste 'data.qr_code' ou 'data.pix_code' conforme o retorno real da sua API
+    // Tenta achar o código Pix em diferentes campos comuns de APIs
+    const pixCode = data.qr_code || data.pix_code || data.qrcode || data.payment_url;
+
+    if (!pixCode) {
+      console.error('Resposta da API sem código Pix:', data);
+      throw new Error('A API não retornou um código Pix válido.');
+    }
+
     return res.status(200).json({ 
       success: true, 
-      pixCode: data.qr_code || data.pix_code || data.payment_url 
+      pixCode: pixCode 
     });
 
   } catch (error) {
-    console.error(error);
+    console.error('Erro no backend:', error);
     return res.status(500).json({ error: error.message });
   }
 }
