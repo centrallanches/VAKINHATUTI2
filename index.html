@@ -10,90 +10,118 @@
             background-color: #f4f4f4;
             color: #333;
             margin: 0;
-            padding: 0; /* Remove padding do body para usar full width */
+            padding: 0;
             line-height: 1.6;
         }
 
         .container {
-            max-width: 100%; /* Ocupa toda a largura disponível */
+            max-width: 100%;
             background: #fff;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             overflow: hidden;
         }
 
-        /* Foto em Destaque no Topo */
+        /* Foto em Destaque no Topo - Full Width */
         .hero-image {
             width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
-            max-height: 500px; /* Altura maior para desktop */
+            max-height: 600px;
         }
 
         .content-wrapper {
-            max-width: 900px; /* Limita apenas o texto para não ficar muito esticado de ler */
-            margin: 0 auto; /* Centraliza o bloco de texto */
-            padding: 50px 20px; /* Mais espaçamento vertical */
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
         }
 
         h1 {
             color: #c41e3a;
             text-align: center;
-            font-size: 2.5rem; /* Título maior */
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
         }
 
         .subtitle {
             text-align: center;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: #666;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            font-weight: 500;
         }
 
-        /* Texto mais grosso conforme pedido */
+        /* Texto mais grosso e maior */
         .content {
-            font-weight: 600; /* Negrito forte mas legível */
-            font-size: 1.2rem; /* Fonte maior */
+            font-weight: 600;
+            font-size: 1.3rem;
             color: #222;
-            max-width: 800px;
+            max-width: 950px;
             margin: 0 auto;
         }
 
         .content p {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .highlight {
             background-color: #fff8e1;
-            padding: 20px;
-            border-left: 5px solid #ffc107;
-            margin: 30px 0;
+            padding: 25px;
+            border-left: 6px solid #ffc107;
+            margin: 40px 0;
             border-radius: 4px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
-        /* Área de Doação */
+        /* Área de Doação Simplificada */
         .donation-area {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid #eee;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid #eee;
             text-align: center;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .val-btn {
+            padding: 15px;
+            background: #fff;
+            border: 2px solid #28a745;
+            color: #28a745;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .val-btn:hover, .val-btn.active {
+            background: #28a745;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+        }
+
         .btn-main {
             display: block;
             width: 100%;
             padding: 20px;
-            background-color: #28a745;
+            background-color: #000;
             color: white;
             text-decoration: none;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: bold;
             border-radius: 8px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             border: none;
             cursor: pointer;
             transition: transform 0.2s;
@@ -101,51 +129,57 @@
 
         .btn-main:hover {
             transform: scale(1.02);
-            background-color: #218838;
+            background-color: #333;
         }
 
-        .input-group {
-            margin-bottom: 20px;
+        /* Área do QR Code (Escondida inicialmente) */
+        #pix-result {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border: 1px solid #eee;
         }
 
-        .custom-input {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.2rem;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            text-align: center;
-            box-sizing: border-box;
+        .qr-img {
+            max-width: 250px;
+            margin: 0 auto;
+            display: block;
+            border: 5px solid #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .quick-values {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .val-btn {
+        .pix-code-box {
+            word-break: break-all;
             background: #fff;
-            border: 2px solid #28a745;
-            color: #28a745;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.1rem;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #555;
             cursor: pointer;
-            transition: all 0.2s;
+            border-radius: 5px;
         }
 
-        .val-btn:hover {
-            background: #28a745;
-            color: #fff;
+        .pix-code-box:hover {
+            background: #f0f0f0;
+        }
+
+        .copy-msg {
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 10px;
+            display: none;
         }
 
         @media (max-width: 768px) {
             .content-wrapper { padding: 30px 20px; }
-            h1 { font-size: 1.8rem; }
+            h1 { font-size: 2rem; }
             .hero-image { max-height: 300px; }
+            .content { font-size: 1.1rem; }
+            .values-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 <style>canvas{max-width:100%;height:auto}img{max-width:100%}</style></head>
@@ -187,34 +221,105 @@
                 <p>Muito obrigada por todo carinho e apoio.</p>
             </div>
 
+            <!-- ÁREA DE DOAÇÃO COM BOTÕES ESPECÍFICOS -->
             <div class="donation-area">
-                <button class="btn-main">QUERO DOAR AGORA</button>
+                <p style="margin-bottom: 20px; font-weight: bold;">Selecione o valor da sua doação:</p>
                 
-                <div class="input-group">
-                    <input type="number" class="custom-input" placeholder="Insira o valor aqui (R$)">
+                <div class="values-grid">
+                    <button class="val-btn" onclick="selectVal(1, this)">R$ 1</button>
+                    <button class="val-btn" onclick="selectVal(5, this)">R$ 5</button>
+                    <button class="val-btn" onclick="selectVal(10, this)">R$ 10</button>
+                    <button class="val-btn" onclick="selectVal(15, this)">R$ 15</button>
+                    <button class="val-btn" onclick="selectVal(20, this)">R$ 20</button>
+                    <button class="val-btn" onclick="selectVal(30, this)">R$ 30</button>
+                    <button class="val-btn" onclick="selectVal(50, this)">R$ 50</button>
                 </div>
 
-                <div class="quick-values">
-                    <button class="val-btn">R$ 1</button>
-                    <button class="val-btn">R$ 10</button>
-                    <button class="val-btn">R$ 15</button>
-                    <button class="val-btn">R$ 20</button>
+                <button class="btn-main" onclick="generatePix()">GERAR QR CODE PIX</button>
+                
+                <div id="pix-result">
+                    <h3>Escaneie o QR Code:</h3>
+                    <img id="qr-image" class="qr-img" src="" alt="QR Code Pix">
+                    
+                    <p style="margin-top: 20px; font-weight: bold;">Ou use o Pix Copia e Cola:</p>
+                    <div class="pix-code-box" onclick="copyPix()" id="pix-string">
+                        Clique em "Gerar" primeiro...
+                    </div>
+                    <p class="copy-msg" id="msg-copy">Código copiado! Cole no app do seu banco.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Script simples para preencher o campo ao clicar nos botões
-        const buttons = document.querySelectorAll('.val-btn');
-        const input = document.querySelector('.custom-input');
+        let selectedAmount = 0;
+        let currentPixCode = '';
 
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const value = btn.innerText.replace('R$ ', '');
-                input.value = value;
+        function selectVal(val, btn) {
+            selectedAmount = val;
+            // Remove a classe active de todos os botões
+            document.querySelectorAll('.val-btn').forEach(b => b.classList.remove('active'));
+            // Adiciona no clicado
+            btn.classList.add('active');
+        }
+
+        async function generatePix() {
+            if (!selectedAmount) {
+                alert('Por favor, selecione um valor acima.');
+                return;
+            }
+
+            const btn = document.querySelector('.btn-main');
+            btn.innerText = 'Gerando...';
+            btn.disabled = true;
+
+            try {
+                // Chama o backend que configuramos no Vercel
+                const res = await fetch('/api/payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ amount: selectedAmount })
+                });
+
+                const data = await res.json();
+
+                if (data.success && data.pixCode) {
+                    currentPixCode = data.pixCode;
+                    
+                    // Mostra a área do QR Code
+                    document.getElementById('pix-result').style.display = 'block';
+                    document.getElementById('pix-string').innerText = currentPixCode;
+                    
+                    // Gera a imagem do QR Code visualmente
+                    document.getElementById('qr-image').src = `https://api.qrserver.com/v1/create-code/?size=250x250&data=${encodeURIComponent(currentPixCode)}`;
+                    
+                    btn.innerText = 'GERAR OUTRO';
+                } else {
+                    alert('Erro ao gerar Pix. Tente novamente.');
+                    console.error(data);
+                }
+            } catch (e) {
+                alert('Erro de conexão com o servidor.');
+                console.error(e);
+            } finally {
+                btn.innerText = 'GERAR QR CODE PIX';
+                btn.disabled = false;
+            }
+        }
+
+        function copyPix() {
+            if (!currentPixCode) return;
+            
+            navigator.clipboard.writeText(currentPixCode).then(() => {
+                const msg = document.getElementById('msg-copy');
+                msg.style.display = 'block';
+                setTimeout(() => {
+                    msg.style.display = 'none';
+                }, 3000);
+            }).catch(err => {
+                console.error('Erro ao copiar: ', err);
             });
-        });
+        }
     </script>
 
 </body>
