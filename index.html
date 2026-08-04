@@ -283,20 +283,26 @@
 
                 const data = await res.json();
 
-                if (data.success && data.pixCode) {
-                    currentPixCode = data.pixCode;
-                    
-                    // Mostra a área do QR Code
-                    document.getElementById('pix-result').style.display = 'block';
-                    document.getElementById('pix-string').innerText = currentPixCode;
+                if (data.success) {
+    currentPixCode = data.pixCode || data.copyPaste;
+
+    document.getElementById('pix-result').style.display = 'block';
+    document.getElementById('pix-string').innerText = currentPixCode;
+
+    if (data.qrCode) {
+        document.getElementById('qr-image').src = data.qrCode;
+    } else {
+        document.getElementById('qr-image').src =
+            `https://api.qrserver.com/v1/create-code/?size=250x250&data=${encodeURIComponent(currentPixCode)}`;
+    }
+}
                     
                     // Gera a imagem do QR Code visualmente
                     document.getElementById('qr-image').src = `https://api.qrserver.com/v1/create-code/?size=250x250&data=${encodeURIComponent(currentPixCode)}`;
                     
                     btn.innerText = 'GERAR OUTRO';
                 } else {
-                    alert('Erro ao gerar Pix. Tente novamente.');
-                    console.error(data);
+                    alert(data.error || data.message || 'Erro ao gerar Pix');
                 }
             } catch (e) {
                 alert('Erro de conexão com o servidor.');
