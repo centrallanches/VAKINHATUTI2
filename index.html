@@ -264,6 +264,12 @@
         }
 
         async function generatePix() {
+    alert("A função começou");
+
+    if (!selectedAmount) {
+        alert('Por favor, selecione um valor acima.');
+        return;
+    }
             if (!selectedAmount) {
                 alert('Por favor, selecione um valor acima.');
                 return;
