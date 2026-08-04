@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajude o Tuti a voltar para casa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #c41e3a;
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* Texto mais grosso conforme pedido */
+        .content {
+            font-weight: 700; /* Negrito forte */
+            font-size: 1.05rem;
+            color: #222;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        /* Área de Doação */
+        .donation-area {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .btn-main {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .custom-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .quick-values {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .val-btn {
+            background: #fff;
+            border: 2px solid #28a745;
+            color: #28a745;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .val-btn:hover {
+            background: #28a745;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+<style>canvas{max-width:100%;height:auto}img{max-width:100%}</style></head>
+<body>
+
+    <div class="container">
+        <h1>Ajude o Tuti a voltar para a casa</h1>
+        <p class="subtitle">Ajude o Tuti a voltar para casa 🐾❤️</p>
+
+        <div class="content">
+            <p><strong>Oi, pessoal. Eu sou o Tuti, um Bulldog Francês muito amado e querido pela minha família. ❤️</strong></p>
+
+            <p>Nos últimos dias, minha família passou por um momento muito difícil e inesperado. Eu comecei a apresentar um quadro grave de saúde e precisei ser internado às pressas. Meu estado se agravou e, neste momento, estou entubado e sedado, recebendo cuidados intensivos e lutando pela minha vida.</p>
+
+            <p>Ainda não temos previsão de alta. Minha família está fazendo tudo o que pode para que eu tenha acesso a todo o tratamento necessário, mas os custos estão ficando muito altos.</p>
+
+            <div class="highlight">
+                <strong>Custos Estimados:</strong><br>
+                - Diária hospitalar: ~R$ 3.000<br>
+                - Medicamentos, insumos e anestesias<br>
+                - Ambulância veterinária<br>
+                - Acompanhamento pós-alta
+            </div>
+
+            <p>Por isso, minha família decidiu criar esta vaquinha para pedir a ajuda de vocês.</p>
+
+            <p>Qualquer valor, por menor que seja, fará uma enorme diferença para nós. Se você não puder contribuir financeiramente, compartilhar esta vaquinha também já será uma grande ajuda.</p>
+
+            <p>Neste momento, tudo o que queremos é ter a chance de trazer o nosso Tuti de volta para casa. 🐾❤️</p>
+
+            <p>Agradecemos de coração a todos que puderem ajudar, compartilhar, enviar uma mensagem de carinho ou simplesmente torcer pela recuperação dele.</p>
+
+            <p>Por favor, torçam pelo Tuti. Ele está lutando, e nós estamos lutando junto com ele. 🙏❤️🐶</p>
+
+            <p>Muito obrigada por todo carinho e apoio.</p>
+        </div>
+
+        <div class="donation-area">
+            <button class="btn-main">QUERO DOAR AGORA</button>
+            
+            <div class="input-group">
+                <input type="number" class="custom-input" placeholder="Insira o valor aqui (R$)">
+            </div>
+
+            <div class="quick-values">
+                <button class="val-btn">R$ 1</button>
+                <button class="val-btn">R$ 10</button>
+                <button class="val-btn">R$ 15</button>
+                <button class="val-btn">R$ 20</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script simples para preencher o campo ao clicar nos botões
+        const buttons = document.querySelectorAll('.val-btn');
+        const input = document.querySelector('.custom-input');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const value = btn.innerText.replace('R$ ', '');
+                input.value = value;
+            });
+        });
+    </script>
+
+</body>
+                                               </html>
