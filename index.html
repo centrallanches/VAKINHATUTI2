@@ -235,7 +235,16 @@
                     <button class="val-btn" onclick="selectVal(50, this)">R$ 50</button>
                 </div>
 
-                <button class="btn-main" onclick="alert('Botão funcionando')">GERAR QR CODE PIX</button>
+                async function generatePix() {
+    alert("A função começou");
+
+    if (!selectedAmount) {
+        alert("Por favor, selecione um valor.");
+        return;
+    }
+
+    // resto do seu código continua igual
+}
                 
                 <div id="pix-result">
                     <h3>Escaneie o QR Code:</h3>
