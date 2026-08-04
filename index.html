@@ -18,9 +18,22 @@
             max-width: 600px;
             margin: 0 auto;
             background: #fff;
-            padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden; /* Garante que a imagem respeite as bordas arredondadas */
+        }
+
+        /* Foto em Destaque no Topo */
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 400px; /* Limita altura para não ficar gigante em telas grandes */
+        }
+
+        .content-wrapper {
+            padding: 30px;
         }
 
         h1 {
@@ -117,7 +130,7 @@
         }
 
         @media (max-width: 600px) {
-            .container { padding: 20px; }
+            .content-wrapper { padding: 20px; }
             h1 { font-size: 1.5rem; }
         }
     </style>
@@ -125,49 +138,54 @@
 <body>
 
     <div class="container">
-        <h1>Ajude o Tuti a voltar para a casa</h1>
-        <p class="subtitle">Ajude o Tuti a voltar para casa 🐾❤️</p>
+        <!-- Foto do Tuti em Destaque -->
+        <img src="file_000000003a78820e8423b35f675465ab.png" alt="Tuti - Bulldog Francês" class="hero-image">
 
-        <div class="content">
-            <p><strong>Oi, pessoal. Eu sou o Tuti, um Bulldog Francês muito amado e querido pela minha família. ❤️</strong></p>
+        <div class="content-wrapper">
+            <h1>Ajude o Tuti a voltar para a casa</h1>
+            <p class="subtitle">Ajude o Tuti a voltar para casa 🐾❤️</p>
 
-            <p>Nos últimos dias, minha família passou por um momento muito difícil e inesperado. Eu comecei a apresentar um quadro grave de saúde e precisei ser internado às pressas. Meu estado se agravou e, neste momento, estou entubado e sedado, recebendo cuidados intensivos e lutando pela minha vida.</p>
+            <div class="content">
+                <p><strong>Oi, pessoal. Eu sou o Tuti, um Bulldog Francês muito amado e querido pela minha família. ❤️</strong></p>
 
-            <p>Ainda não temos previsão de alta. Minha família está fazendo tudo o que pode para que eu tenha acesso a todo o tratamento necessário, mas os custos estão ficando muito altos.</p>
+                <p>Nos últimos dias, minha família passou por um momento muito difícil e inesperado. Eu comecei a apresentar um quadro grave de saúde e precisei ser internado às pressas. Meu estado se agravou e, neste momento, estou entubado e sedado, recebendo cuidados intensivos e lutando pela minha vida.</p>
 
-            <div class="highlight">
-                <strong>Custos Estimados:</strong><br>
-                - Diária hospitalar: ~R$ 3.000<br>
-                - Medicamentos, insumos e anestesias<br>
-                - Ambulância veterinária<br>
-                - Acompanhamento pós-alta
+                <p>Ainda não temos previsão de alta. Minha família está fazendo tudo o que pode para que eu tenha acesso a todo o tratamento necessário, mas os custos estão ficando muito altos.</p>
+
+                <div class="highlight">
+                    <strong>Custos Estimados:</strong><br>
+                    - Diária hospitalar: ~R$ 3.000<br>
+                    - Medicamentos, insumos e anestesias<br>
+                    - Ambulância veterinária<br>
+                    - Acompanhamento pós-alta
+                </div>
+
+                <p>Por isso, minha família decidiu criar esta vaquinha para pedir a ajuda de vocês.</p>
+
+                <p>Qualquer valor, por menor que seja, fará uma enorme diferença para nós. Se você não puder contribuir financeiramente, compartilhar esta vaquinha também já será uma grande ajuda.</p>
+
+                <p>Neste momento, tudo o que queremos é ter a chance de trazer o nosso Tuti de volta para casa. 🐾❤️</p>
+
+                <p>Agradecemos de coração a todos que puderem ajudar, compartilhar, enviar uma mensagem de carinho ou simplesmente torcer pela recuperação dele.</p>
+
+                <p>Por favor, torçam pelo Tuti. Ele está lutando, e nós estamos lutando junto com ele. 🙏❤️🐶</p>
+
+                <p>Muito obrigada por todo carinho e apoio.</p>
             </div>
 
-            <p>Por isso, minha família decidiu criar esta vaquinha para pedir a ajuda de vocês.</p>
+            <div class="donation-area">
+                <button class="btn-main">QUERO DOAR AGORA</button>
+                
+                <div class="input-group">
+                    <input type="number" class="custom-input" placeholder="Insira o valor aqui (R$)">
+                </div>
 
-            <p>Qualquer valor, por menor que seja, fará uma enorme diferença para nós. Se você não puder contribuir financeiramente, compartilhar esta vaquinha também já será uma grande ajuda.</p>
-
-            <p>Neste momento, tudo o que queremos é ter a chance de trazer o nosso Tuti de volta para casa. 🐾❤️</p>
-
-            <p>Agradecemos de coração a todos que puderem ajudar, compartilhar, enviar uma mensagem de carinho ou simplesmente torcer pela recuperação dele.</p>
-
-            <p>Por favor, torçam pelo Tuti. Ele está lutando, e nós estamos lutando junto com ele. 🙏❤️🐶</p>
-
-            <p>Muito obrigada por todo carinho e apoio.</p>
-        </div>
-
-        <div class="donation-area">
-            <button class="btn-main">QUERO DOAR AGORA</button>
-            
-            <div class="input-group">
-                <input type="number" class="custom-input" placeholder="Insira o valor aqui (R$)">
-            </div>
-
-            <div class="quick-values">
-                <button class="val-btn">R$ 1</button>
-                <button class="val-btn">R$ 10</button>
-                <button class="val-btn">R$ 15</button>
-                <button class="val-btn">R$ 20</button>
+                <div class="quick-values">
+                    <button class="val-btn">R$ 1</button>
+                    <button class="val-btn">R$ 10</button>
+                    <button class="val-btn">R$ 15</button>
+                    <button class="val-btn">R$ 20</button>
+                </div>
             </div>
         </div>
     </div>
@@ -186,4 +204,4 @@
     </script>
 
 </body>
-                                               </html>
+</html>
